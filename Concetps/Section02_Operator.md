@@ -41,4 +41,25 @@ The key features of operators we should be familiar with are
     - They are basically long running task
     - The Sensor operators have a poke method called repeatedly until it return true
   
+
+    
+   ```python
+    from airflow import DAG
+    
+    with DAG(dag_id="twitter_dag",schedule_interval="@daily") as dag:
+       """
+       Parameters :
+  
+       fs_conn_id:id of connection where the path of the file will be stored
+  
+       filepath:a file name related to the base path set
+ 
+      task ID: an unique identifier for a given task
+ 
+      poke_interval : defines the interval at which the folder of the file will be
+                      checked. In our code, the task will check every five second
+      """
+      waiting_for_tweets=FileSensor(task_id="waiting_for_tweets",fs_conn_id="fs_tweet",filepath="data.csv",poke_interval=5)
+ ```
+    
   
