@@ -8,9 +8,9 @@
 While DAGs describes how to run a workflow, operators determine what actually gets doen.
 
 
-"An operator describes a single task in a workflow. Operators are usually (but not always) atomic, meaning they can stand on their own and don’t need to share resources with any other operators. The DAG will make sure that operators run in the correct order; other than those dependencies, operators generally run independently. In fact, they may run on two completely different machines.
+An operator describes a single task in a workflow. Operators are usually (but not always) atomic, meaning they can stand on their own and don’t need to share resources with any other operators. The DAG will make sure that operators run in the correct order; other than those dependencies, operators generally run independently. In fact, they may run on two completely different machines.
 
-This is a subtle but very important point: in general, if two operators need to share information, like a filename or small amount of data, you should consider combining them into a single operator. If it absolutely can’t be avoided, Airflow does have a feature for operator cross-communication called XCom that is described in the section XComs"
+This is a subtle but very important point: in general, if two operators need to share information, like a filename or small amount of data, you should consider combining them into a single operator. If it absolutely can’t be avoided, Airflow does have a feature for operator cross-communication called XCom that is described in the section XComs
 
                                                                                                      From Airflow Documentation
 
@@ -41,7 +41,7 @@ The key features of operators we should be familiar with are
     - They are basically long running task
     - The Sensor operators have a poke method called repeatedly until it return true
   
-
+   eg) the example code for sensor operator
     
    ```python
     from airflow import DAG
@@ -59,7 +59,8 @@ The key features of operators we should be familiar with are
       poke_interval : defines the interval at which the folder of the file will be
                       checked. In our code, the task will check every five second
       """
-      waiting_for_tweets=FileSensor(task_id="waiting_for_tweets",fs_conn_id="fs_tweet",filepath="data.csv",poke_interval=5)
+      waiting_for_tweets=FileSensor(task_id="waiting_for_tweets",fs_conn_id="fs_tweet",\n
+                                    filepath="data.csv",poke_interval=5)
  ```
     
   
