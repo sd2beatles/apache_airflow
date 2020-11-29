@@ -43,7 +43,7 @@ The key features of operators we should be familiar with are
   
    eg) the example code for sensor operator
     
-   ```python
+```python
     from airflow import DAG
     
     with DAG(dag_id="twitter_dag",schedule_interval="@daily") as dag:
@@ -61,7 +61,9 @@ The key features of operators we should be familiar with are
       """
       waiting_for_tweets=FileSensor(task_id="waiting_for_tweets",fs_conn_id="fs_tweet",\n
                                     filepath="data.csv",poke_interval=5)
- ```
+
+
+```
 Right after writing the code and saving it, we should revist the airflow web browser. Fill out the sections in order to run the code.
 
 ![image](https://user-images.githubusercontent.com/53164959/100551884-ef061a00-32c6-11eb-9675-8b1c1b469260.png)
