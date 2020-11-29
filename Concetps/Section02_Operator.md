@@ -45,7 +45,7 @@ The key features of operators we should be familiar with are
     
 ```python
     from airflow import DAG
-    
+    from a
     with DAG(dag_id="twitter_dag",schedule_interval="@daily") as dag:
        """
        Parameters :
