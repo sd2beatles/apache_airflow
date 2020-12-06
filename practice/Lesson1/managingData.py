@@ -1,4 +1,4 @@
-```python
+
 from airflow import DAG
 from airflow.contrib.sensors.file_sensor import FileSensor
 from airflow.operators.python_operator import PythonOperator
@@ -23,4 +23,3 @@ with DAG(dag_id="twitter_dag",default_args=default_args,schedule_interval="@dail
     storing_tweet=BashOperator(task_id="storing_for_tweet",bash_commnad=f"hadoop fs put -f {source_dir} {destination_dir}")
 
 
-```
