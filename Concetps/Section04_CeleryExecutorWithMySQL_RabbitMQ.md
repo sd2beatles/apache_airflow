@@ -42,7 +42,7 @@ If one of your node has a older version of DAG, you are more likely to get an in
 
 - Workers must be in sync which implies that the same configuration settings and dependencies are required on all the nodes.
 
--Horizontal Scaliability. Scaling out the number of workers will incrase the nubmer of tasks to process. The time of task completion will decrease accordingly. 
+- Horizontal Scaliability. Scaling out the number of workers will incrase the nubmer of tasks to process. The time of task completion will decrease accordingly. 
 
 - The celery executor is widely used in production and proven to be reliable. 
 
