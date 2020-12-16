@@ -44,13 +44,13 @@ There are some of distinct features we may find curious and intereseting.
 First, as for a single node,it is a custom to keep the web server and the scheduler on the same node,therby preventing one metadatabase from lossing everything
 if the node holoding it crashes. 
 
-Second,there components which are shown to be algined next to one anther in our diagram work togeher by excahing data through the metadatabse
-       If we extend our range of the scope to the cluster mode, the major difference you can eaisly notice in the bleow is that you have
-       a master node with a web server colated with a scheduler whereas the metadatabse is running on its own node. On top of that, 
+Second,there components which are shown to be aligned next to one anther in our diagram work togeher by excahing data through the metadatabse
+       If we extend our range of the scope to the cluster mode, the major difference  is that you have
+       a master node with a web server stting on the same node with a scheduler whereas the metadatabse is running on its own . On top of that, 
        your assigned taks are to be executed on multiple worker nodes since the workload is now distributed across the worker nodes, which
        allows you scale up Airflow to fit with your needs. 
        
-       For example, just think of a situation in which you want to run as many data pipelines but your resources are limited. Then, all you
+       For example, just think of a situation where you want to run as many data pipelines but your resources are limited. Then, all you
        can do is add anoter node in your cluster in order to boost your processing capacity.
     
 Third, the queing system in the multiple nodes are somehow different because it is located on another node and totally independent. 
