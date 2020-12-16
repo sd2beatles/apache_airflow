@@ -22,7 +22,7 @@ Apache airflow readily works in a distributed environment. Each task is schedule
    Isolation ensures that all transaction is running in isolation,which indicates no trascation possibly gain data from another that has not yet completed
    
    - Durability:
-   Once a transaction is commiteed, it will remain in the system even if a system crash follows the transaction. Any changes from the trasncation mustbe stored permanently. 
+   Once a transaction is commiteed, it will remain in the system even if a system crash follows the transaction. Any changes from the trasncation must be stored permanently. 
    
 - SQLite requires no configuration to run. 
 
