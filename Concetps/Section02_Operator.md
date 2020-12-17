@@ -12,7 +12,7 @@ An operator describes a single task in a workflow. Operators are usually (but no
 
 This is a subtle but very important point: in general, if two operators need to share information, like a filename or small amount of data, you should consider combining them into a single operator. If it absolutely can’t be avoided, Airflow does have a feature for operator cross-communication called XCom that is described in the section XComs
 
-                                                                                                     From Airflow Documentation
+                                                                                                    
 
 ### 2.2 Key Things to Remember
 
