@@ -19,7 +19,7 @@ This is a subtle but very important point: in general, if two operators need to 
 The key features of operators we should be familiar with are 
 
 - The Operatior are regarded as the definition of a __single__ task.
-- The operator should be impotent,which explains regardless of how many times it is ru, the operator should produce the same result.
+- The operator should be impotent,which explains regardless of how many times it is run, the operator should produce the same result.
 - Any assigned task can be repeatedly __retried__ in the time of failure.
 - A task is created by __instantiating__ an Operator class.
 - An operator defines the nature of a task and how it should be executed.
@@ -45,7 +45,7 @@ The key features of operators we should be familiar with are
     
 ```python
     from airflow import DAG
-    from a
+    from airflow.contrib.operators.file_sensor import FileSensor
     with DAG(dag_id="twitter_dag",schedule_interval="@daily") as dag:
        """
        Parameters :
