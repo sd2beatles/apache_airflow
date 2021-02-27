@@ -72,8 +72,8 @@ Next, the scheduler picks taks instances according to its priority and sets the 
 ![image](https://user-images.githubusercontent.com/53164959/99047708-eda2d500-25d7-11eb-8bb4-dc209ce93e1f.png)
 
 Now, the executor pulls the task from its queque and changes the state of the taskInstance from "Queued" to "Running". Once the status changes,
-the subprocess starts to process the task instances. When the task finishes, the DAGRun is updated by the scheduler with stating either "sucess" or "failed".
-Of Course, during this process, the web servers periodically fetches data frin the metadata base in order to update UI.
+it starts to process the task instances. When the task finishes, the DAGRun is updated by the scheduler with stating either "sucess" or "failed".
+Of Course, during this process, the web servers periodically fetches data into the metadata base in order to update UI.
 
 ![image](https://user-images.githubusercontent.com/53164959/99047986-55592000-25d8-11eb-840f-8fd8935b33b5.png)
 
