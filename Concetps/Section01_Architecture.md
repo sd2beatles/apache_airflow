@@ -50,8 +50,6 @@ Second,there components which are shown to be aligned next to one anther in our 
        your assigned taks are to be executed on multiple worker nodes since the workload is now distributed across the worker nodes, which
        allows you scale up Airflow to fit with your needs. 
        
-       For example, just think of a situation where you want to run as many data pipelines but your resources are limited. Then, all you
-       can do is add anoter node in your cluster in order to boost your processing capacity.
     
 Third, the queing system in the multiple nodes are somehow different because it is located on another node and totally independent. 
       
@@ -69,7 +67,7 @@ Second, right after the first stage is running smoothly, a task instance is inst
 
 ![image](https://user-images.githubusercontent.com/53164959/99047354-71a88d00-25d7-11eb-9ea0-74d9664c8c8a.png)
 
-Next, the scheduler picks taks instances according to its priority and sets the state of them to "queue", sening them to the executor to be triggered.
+Next, the scheduler picks taks instances according to its priority and sets the state of them to "queue", sending them to the executor to be triggered.
 
 ![image](https://user-images.githubusercontent.com/53164959/99047708-eda2d500-25d7-11eb-8bb4-dc209ce93e1f.png)
 
