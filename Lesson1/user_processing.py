@@ -9,7 +9,7 @@ import json
 
 defaultParams={'function':'OVERVIEW',
         'symbol':'IBM',
-        'apikey':"OPF63VL4JTRN9IR8"}
+        'apikey':"obtain a key from the website"}
 
 
 def processing_companies(ti):
