@@ -31,7 +31,7 @@ airflow tasks test  your_dag_id your_task_id start_date
 eg) airflow tasks test user_processing cretingTable 2021-03-01
 ```
 If your python code does not contain gramatical erros, the table would be immediately set up and ready for use.
-It should be helpful to check out the name of the newly created tableby accessing the sqlite3 database.
+It should be helpful to check out the name of the newly created table by accessing the sqlite3 database.
 
 ```linux
 sqlite3 airflow.db
@@ -41,7 +41,16 @@ sqlite> .tables
 
 ### 4. Availabilty of API
 
-Before proceeding to the further stage, we need to better check out the existence of API from which we can download data. 
+Before proceeding to the further stage, we need to better check out the existence of API from which we can download data. The steps are much similar to what we did in the section 2 excepts that infomration you enter is different.  
+
+![image](https://user-images.githubusercontent.com/53164959/109629573-4a2a0000-7b87-11eb-9443-a19d5e33e5ec.png)
+
+Again, to perform the given task, we need to implement a line of code below. 
+
+```linux
+airflow tasks test dag_id task_id starte_date
+eg) airflow tasks test user_processing is_api_available 2021-03-01
+```
 
 
 
