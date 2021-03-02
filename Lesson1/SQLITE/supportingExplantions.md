@@ -217,7 +217,7 @@ Now, We have gone through all the steps up to 7. But there is one missing here, 
 
 ![image](https://user-images.githubusercontent.com/53164959/109640313-a6931c80-7b93-11eb-9498-822e28485414.png)
 
-If you visit UI on the website and click the graph view of your chosen DAG, we will notice that all the tasks are arranged haphazardly and nothing connects from one task to another. We need to line up the tasks in the proper order as we have just seen and place a connection between tasks.  This can be down by using set_upstream and set_downstream functions and bitshit operators like >> and  <<
+If you visit the UI  and click the graph view of your chosen DAG, you will notice that all the tasks are arranged haphazardly and nothing connects from one task to another. We need to line up the tasks in the proper order as we have just seen and place a connection between tasks.  This can be down by using set_upstream and set_downstream functions and bitshit operators like >> and  <<
 
 ```python
  creating_table >> is_api_available >> extracting_user >> processing_user >> storing_user
