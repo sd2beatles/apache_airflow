@@ -201,8 +201,12 @@ from the storage of data to the table under SQLite3 database.
 
 ![image](https://user-images.githubusercontent.com/53164959/109639469-8f9ffa80-7b92-11eb-83e0-aceed5c26c7c.png)
 
-```linux
+If you want to check that data has been sent to the pre-assigned table, run the code below in your terminal.
 
+```linux
+sqlite3 airflow.db
+
+sqlite> SELECT * FROM users;
 
 ```
 
