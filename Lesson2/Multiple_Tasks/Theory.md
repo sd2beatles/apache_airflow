@@ -31,6 +31,11 @@ Before moving to the step of changing the setting, there are coule of things we 
 ![image](https://user-images.githubusercontent.com/53164959/109655015-27f3aa80-7ba6-11eb-9d19-edea611911ff.png)
 
 
+
+### 3. Changing the default Settings
+
+As previosuly 
+
  
  
 
