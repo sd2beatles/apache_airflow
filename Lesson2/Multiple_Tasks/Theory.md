@@ -26,9 +26,10 @@ Before moving to the step of changing the setting, there are coule of things we 
 
  ```linux
  airflow config get-value core sql_alchmey_conn
- 
+ airflow config get-value core executor 
  ```
- ![image](https://user-images.githubusercontent.com/53164959/109653279-2de88c00-7ba4-11eb-943f-a6311afe706a.png)
+![image](https://user-images.githubusercontent.com/53164959/109655015-27f3aa80-7ba6-11eb-9d19-edea611911ff.png)
+
 
  
  
