@@ -18,11 +18,23 @@ Let's briefly talk about how the airflow configuration runs by default. If you l
 
 "The default configuration only allows for sequential mode, which means that tasks will be performed one after another."
 
-Therfore, we need to change the current mode by wirting a code below. 
+Before moving to the step of changing the setting, there are coule of things we should be aware of; 
 
-```linux
-airflow config 
+- SQLite3 does not support parallel quries. If you want to make the quries work, you need to select another sql lanaguage apart from SQLite3. 
 
-```
+- By default, airflow database is automatically connected to the SQLite3. The default setting can be checked by a simple code below
+
+ ```linux
+ airflow config get-value core sql_alchmey_conn
+ 
+ ```
+ 
+ ![image](https://user-images.githubusercontent.com/53164959/109653279-2de88c00-7ba4-11eb-943f-a6311afe706a.png)
+
+ 
+ 
+
+
+
 
 
