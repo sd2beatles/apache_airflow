@@ -28,7 +28,6 @@ Before moving to the step of changing the setting, there are coule of things we 
  airflow config get-value core sql_alchmey_conn
  
  ```
- 
  ![image](https://user-images.githubusercontent.com/53164959/109653279-2de88c00-7ba4-11eb-943f-a6311afe706a.png)
 
  
