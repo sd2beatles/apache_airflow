@@ -181,6 +181,33 @@ Here is the point where x.com_pull kicks in. All the loaded data must be saved t
 For simplicity, think of xcom as a way of sharing data among tasks in airflow. For example, in our code, "extracting user" will create x.com and  the data we extract through the task will be stored as x.com in the main database of airflow. The key and value will be given automatically where key is a unique value identifying the data and value is data we obtain. When you want to fatch it from the master of airflow , you simply call the function,xcom.pull,with the right task id. 
 
 
+### 7. File to SQLite3
+
+For simple code explanation, we specified the separator of our values in the file. And then we will execute the "import" to bring the values 
+from the storage of data to the table under SQLite3 database. 
+
+
+```python
+ storing_user=BashOperator(
+        task_id="storing_user",
+        bash_command='echo -e ".separtor ","\n.import /tmp/processed_user.csv users" | sqlite3 /home/airflow/airflow/airflow.db'
+    )
+```
+
+```linux
+ airflow tasks test dag_id task_id 
+ eg) airflow tasks test user_processing storing_users
+```
+
+![image](https://user-images.githubusercontent.com/53164959/109639469-8f9ffa80-7b92-11eb-83e0-aceed5c26c7c.png)
+
+```linux
+
+
+```
+
+
+
 
 
 
