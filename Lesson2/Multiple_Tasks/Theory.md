@@ -22,8 +22,7 @@ Before moving to the step of changing the setting, there are coule of things we 
 
 - SQLite3 does not support parallel quries. If you want to make the quries work, you need to select another sql lanaguage apart from SQLite3. 
 
-- By default, airflow database is automatically connected to the SQLite3. The default setting can be checked by a simple code below
-
+- By default, airflow database is automatically connected to the SQLite3. 
  ```linux
  airflow config get-value core sql_alchmey_conn
  airflow config get-value core executor 
@@ -34,7 +33,45 @@ Before moving to the step of changing the setting, there are coule of things we 
 
 ### 3. Changing the default Settings
 
-As previosuly 
+Open airflow.cfg file and find "sql_alchemy_conn". Here we will use postgre sql as a main sql database but the choice of databse system
+depends on your preference. 
+
+```linux
+sql_alchemy_conn=postgresql+psycopg2://<user name>:<passsword>@<port>/<the name of database we willl use with airflow>              
+eg)sql_alchemy_conn=postgresql+psycopg2://postgres:postgres@localhost/postgres
+
+```
+Now, we need one more thing to change. 
+
+```linux
+executor=LocalExecutor
+```
+If you have any airlfow servers or/and scheduler running in your virtual machine, you stop everthing and initialize postgres database.
+In your terminal, write the code for initialization
+
+```linux
+airflow db init
+```
+![image](https://user-images.githubusercontent.com/53164959/109755175-d6403400-7c28-11eb-9788-d76311830b53.png)
+
+Now,we need to create a new user under the new environmetal settings. The basic format is following below and fill every section to your preference. As for -r, you can choose one of the given options; Admin, Public, Viewer, User, Op.
+
+```sql
+airflow users create -u <username> -p <passowrd>  -r <role> -f <family name> -l <last name> -e <email>
+
+eg)airflow users create -u admin -p admin -r Admin -f admin -l admin -e admin@airflow.com
+
+```
+
+Restart airflow webserver and scheduler. Vist your local webserver to log in with your new account.
+By clicking "Gantt" in your webserver, We can double check whether our configuration are compatible and set up well for parallel programming. 
+
+![image](https://user-images.githubusercontent.com/53164959/109756161-bb6ebf00-7c2a-11eb-9f02-02dab4cf9013.png)
+
+
+
+
+
 
  
  
