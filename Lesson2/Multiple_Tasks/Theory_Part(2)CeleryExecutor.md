@@ -14,6 +14,7 @@ Celery Executor is a distributed task system, whose major role is to spread out 
 
 To closely examine how the celery executor works, we first need to understand the flow of data to each worker.  In our chart below,  two fundamental systems, web server and scheduler, 
 are currently running in node 1 with the metadatabase such as MySQL or PostgreSQL on node 2. Every task incoming into the system first is temporarily stored in the queue until airflow gets ready to execute it.  
+
 Especially, you need to be alert that the queue is not located inside the executor but outside of it.  This is where Redis comes to our attention.  Now, we need to introduce the new terminology called Redis which is defined as an in-memory database to be used as a queue system.  While tasks are waiting in the Redist to be executed, it is workers or machines that pull out the task to execute them.  One last terminology we are familiar with is  worker_concurreny which tells us the maximum number of tasks allowed to be executed within each worker.For example, if you set worker_concurrency equal to 2 for every node and have two nodes, the total 4 tasks can be done in parallel.
 
 
@@ -24,4 +25,22 @@ tasks executed simultaneously.
 
 
 ![image](https://user-images.githubusercontent.com/53164959/101950947-7fcee500-3c39-11eb-8cd2-4d0bb0f7de1d.png)
+
+
+
+
+### Basic Knowledge of Parallel Programming____________________________________________________________ :pencil2:
+It is believed that Concurrency and parallelism are the terminologies that are used interchangeably. However, the mechanism behind each structure type is quite different.
+
+Concurrency is when one or more tasks start and run, and complete in the overlapping time period. Let's assume that we have two tasks in a single machine. It begins with task1 and spends some time completing part of it and switch to the other, performing it, and back to task1 again. This process will repeat over and over until the tasks are complete. 
+
+On the other hand, Parallelism is when tasks literally run at the same time.
+Two task are being performed on two different machies. 
+
+![image](https://user-images.githubusercontent.com/53164959/101834063-2e612000-3b7d-11eb-9b0b-e637c2ff3122.png)
+
+
+
+
+
 
