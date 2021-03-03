@@ -79,5 +79,3 @@ The major types of executors are as follows:
 
 
 
-
-
