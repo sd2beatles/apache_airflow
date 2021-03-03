@@ -29,16 +29,8 @@ tasks executed simultaneously.
 
 
 
-### Basic Knowledge of Parallel Programming____________________________________________________________ :pencil2:
-It is believed that Concurrency and parallelism are the terminologies that are used interchangeably. However, the mechanism behind each structure type is quite different.
-
-**_Concurrency_** is when one or more tasks start and run, and complete in the overlapping time period. Let's assume that we have two tasks in a single machine. It begins with task1 and spends some time completing part of it and switch to the other, performing it, and back to task1 again. This process will repeat over and over until the tasks are complete. 
-
-On the other hand, **_Parallelism_** is when tasks literally run at the same time.
-Two task are being performed on two different machies. 
-
-![image](https://user-images.githubusercontent.com/53164959/101834063-2e612000-3b7d-11eb-9b0b-e637c2ff3122.png)
-
+### Useful Terminologies in Airflow ____________________________________________________________ :pencil2:
+![image](https://user-images.githubusercontent.com/53164959/109797501-ea9e2400-7c5c-11eb-8955-1fa6a3a05194.png)
 
 
 
