@@ -13,20 +13,67 @@ This is what subdag is available for. Briefly speaking, subdag allows you to cre
 
 
 Visit the file **_airlfow.cfg_** and find the variable called  **_load_examples_**. Change the default setting to False. 
-Here, we will use the parallel.py from the previous lecure as a basis. We will add some features to implement subdag. 
-
-```python
-
-
-
-
-```
-One noticeable difference from the last code is that we add SubDagOperator with tak_id set to "processing tasks".  We have to have one more task to do, creating a function to return the subdag. 
+Here, we will use the parallel_dag.py from the previous lecure as a basis. We will add some features to implement subdag. 
 
 Firs,create a new folder named subfolders under dags and a file **_subdag_parallel_dag.py_**. In the file, we will define a function to make
 a subdag. In this function, we create a new DAG by instantiating a DAG objection with  parent and child id with the default arguments equal to those already specified in the 'main' DAG.
 
 ```python
+## sudag_parallel_dag.py
+from airflow import DAG
+from airflow.operators.bash import BashOperator
+
+def subdag_parallel_dag(parent_dag_id,child_dag_id,default_args):
+    with DAG(dag_id='{}.{}'.format(parent_dag_id,child_dag_id),default_args=default_args) as dag:
+        task_2=BashOperator(
+            task_id="task_2",
+            bash_command="sleep 3"
+        )
+        
+        task_3=BashOperator(
+            task_id="task_3",
+            bash_command="sleep 3"
+        )
+        
+        return dag
+```
+
+Import the function we have defined to the parallel_dag.py. There is an important task to take; 
+
+   - put 'main' DAG id to praent_id
+   - put the task id of SubDagOperator to child_id
+
+```python
+from airflow import DAG
+from airflow.operators.bash import BashOperator
+from airflow.operators.subdag import SubDagOperator
+from datetime import datetime
+from subdags.subdag_parallel_dag import subdag_parallel_dag
+
+default_args={
+    'start_date':datetime(2021,3,6)
+}
+
+with DAG("parallel_dag",schedule_interval="@daily",default_args=default_args,catchup=False) as dag:
+    task_1=BashOperator(
+        task_id='task_1',
+        bash_command='sleep 3'
+    )
+    
+    processing=SubDagOperator(
+        task_id="processing_tasks",
+        subdag=subdag_parallel_dag('parallel_dag','processing_tasks',default_args)
+    )
+  
+
+    task_4=BashOperator(
+        task_id="task_4",
+        bash_command="sleep 3"
+    )
+
+    task_1 >> processing >> task_4
+    
+```
 
 
 
