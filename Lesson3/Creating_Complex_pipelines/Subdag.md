@@ -75,6 +75,19 @@ with DAG("parallel_dag",schedule_interval="@daily",default_args=default_args,cat
     
 ```
 
+### 4. Tips to Remember
+
+In practical settings, sub-dags are not recommended at all because you will face a variety of issues related to this simple function. 
+
+
+First of all,  there is a high chance of your whole system being into deadlocks to prevent all the rest tasks from running successfully. 
+
+Secondly, it adds some complexity to the data pipelines. From the previous example, we have defined a new function and inside it created a new DAG with the same sharing arguments as the parent DAG.
+
+Last but not least, sub-DAG has its executor independent from the 'main' DAG. Even if the configuration of airflow we set up is a local executor, the sub DAG is still abiding by sequential executor by default.
+
+
+
 
 
 
