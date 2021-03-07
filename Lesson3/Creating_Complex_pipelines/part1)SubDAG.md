@@ -1,3 +1,5 @@
+![image](https://user-images.githubusercontent.com/53164959/110245299-e4ce7880-7fa5-11eb-8a01-d4969484d8d8.png)
+
 ## 1. Introduction 
 
 Just imagine that you have data pipelines that consist of three major tasks; downloading, checking f, and processing files with the dependencies. 
