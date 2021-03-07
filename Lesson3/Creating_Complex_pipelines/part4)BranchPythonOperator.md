@@ -3,7 +3,7 @@
 If you want to go down a certain path depending on the arbitrary condition which is typically associated with some past events in an upstream task. One way to realize this is by using BrachPythonOperator.
 
 
-For example,  from the first task, we compute the level of accuracy based on some function. If the computed value is greater than  5 as a threshold, go to the task node called 'accuracy'. Otherwise, the next node it will flow to is  'inaccuracy'. Execution of code is highly related to the value from the preceding node. 
+For example,  from the first task, we compute the level of accuracy based on some function. If the computed value is greater than  5 as a threshold, go to the task node called 'accurate'. Otherwise,  it will flow to is  'inaccurate'. Execution of code is highly related to the value from the preceding node. 
 
 
 
@@ -156,4 +156,6 @@ with DAG("xcom_dag",schedule_interval="@daily",default_args=default_args,catchup
 
 ```
 ![image](https://user-images.githubusercontent.com/53164959/110244713-6375e680-7fa3-11eb-89e7-bc7369e49a99.png)
+
+From the final result, some unintentional consequence has happened; the 'storing task' is not run and skipped over. We need to learn more advanced cocepts to fix this issue. 
 
