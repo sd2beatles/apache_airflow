@@ -1,3 +1,7 @@
+
+![image](https://user-images.githubusercontent.com/53164959/110245267-cb2d3100-7fa5-11eb-9e26-ad14504dbdd7.png)
+
+
 ### 1. Objectives 
 
 :point_right: Here is a list of questions we should answer after the lecture. 
