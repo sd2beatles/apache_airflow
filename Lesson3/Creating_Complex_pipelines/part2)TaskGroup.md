@@ -1,3 +1,5 @@
+![image](https://user-images.githubusercontent.com/53164959/110245318-edbf4a00-7fa5-11eb-925f-5417a84b8751.png)
+
 ## 1. Taskgrouop
 
 In this short and simple lecture, we are going to introduce the use of **_task_grouop_** instead to perfectly substitute for the SubDAG.
