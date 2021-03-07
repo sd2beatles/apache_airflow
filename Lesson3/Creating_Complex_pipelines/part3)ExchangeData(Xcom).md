@@ -17,3 +17,14 @@ But the major obstacle that we must bear with when using "xcoms" is that **_cros
 
 
 Xcoms allows for 2 GB of data stroage for PostGreSQL ,1 GB for Xcom , 64 KB for MySQL. For this limitation, Xcoms is not usually accompanied with frameworks like Spark or Flink. 
+
+
+## 2 Case Study
+
+:black_nib:
+We are going to create a 'DAG' file that consists of three major tasks, download data, processing, and choosing the best model. Because this case study is only to understand the basic function of 'xcom',  we write a simple bash code for the first task , sleeping for 3 seconds.  On the second node, there are three training models, whose accuracy is determined by the random number in a range between 0 and 1.  Finally,  the last node is to choose the best model out of three. 
+
+
+```
+
+
