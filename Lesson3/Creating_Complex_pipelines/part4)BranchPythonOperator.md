@@ -157,5 +157,5 @@ with DAG("xcom_dag",schedule_interval="@daily",default_args=default_args,catchup
 ```
 ![image](https://user-images.githubusercontent.com/53164959/110244713-6375e680-7fa3-11eb-89e7-bc7369e49a99.png)
 
-From the final result, some unintentional consequence has happened; the 'storing task' is not run and skipped over. We need to learn more advanced cocepts to fix this issue. 
+From the final result, an unintentional consequence has happened; the 'storing task' is not run and skipped over. We need to learn more advanced cocepts to fix this issue. 
 
