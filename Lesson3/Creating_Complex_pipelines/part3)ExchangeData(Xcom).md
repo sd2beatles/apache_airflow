@@ -26,58 +26,84 @@ We are going to create a 'DAG' file that consists of three major tasks, download
 
 
 ```python
-
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
-from airflow.operators.subdag import SubDagOperator
 from airflow.utils.task_group import TaskGroup
-
-from random import uniform
 from datetime import datetime
-
-default_args = {
-    'start_date': datetime(2020, 1, 1)
+from random import uniform
+default_args={
+    'start_date':datetime(2021,3,7)
 }
 
-def _training_model():
-    accuracy = uniform(0.1, 10.0)
-    print(f'model\'s accuracy: {accuracy}')
+def _training_model(ti):
+    accuracy=uniform(0,10.0)
+    print("model's accuracy: {}".format(accuracy))
+    ti.xcom_push(key="model_accuracy",value=accuracy)
 
-def _choose_best_model():
-    print('choose best model')
 
-with DAG('xcom_dag', schedule_interval='@daily', default_args=default_args, catchup=False) as dag:
+def _choose_best_model(ti):
+    print("chosing the best model")
+    accuracies=ti.xcom_pull(key="model_accuracy",task_ids=[
+        "processing_tasks.training_model_a",
+        "processing_tasks.training_model_b",
+        "processing_tasks.training_model_c"
+    ])
+    print(accuracies)
 
-    downloading_data = BashOperator(
-        task_id='downloading_data',
-        bash_command='sleep 3'
+with DAG("xcom_dag",schedule_interval="@daily",default_args=default_args,catchup=False) as dag:
+    downloadingData=BashOperator(
+        task_id="downloading_data",
+        bash_command="sleep 3",
+        do_xcom_push=False
     )
 
     with TaskGroup('processing_tasks') as processing_tasks:
-        training_model_a = PythonOperator(
-            task_id='training_model_a',
-            python_callable=_training_model
-        )
+            training_model_a = PythonOperator(
+                task_id='training_model_a',
+                python_callable=_training_model
+            )
 
-        training_model_b = PythonOperator(
-            task_id='training_model_b',
-            python_callable=_training_model
-        )
+            training_model_b = PythonOperator(
+                task_id='training_model_b',
+                python_callable=_training_model
+            )
 
-        training_model_c = PythonOperator(
-            task_id='training_model_c',
-            python_callable=_training_model
-        )
+            training_model_c = PythonOperator(
+                task_id='training_model_c',
+                python_callable=_training_model
+            )
 
     choose_model = PythonOperator(
         task_id='task_4',
         python_callable=_choose_best_model
     )
 
-    downloading_data >> processing_tasks >> choose_model
 
 
+    downloadingData >> processing_tasks >> choose_model
+        
 ```
+
+
+
+![image](https://user-images.githubusercontent.com/53164959/110242271-a1214200-7f98-11eb-8721-23aed34c62c9.png)
+
+
+
+
+
+:pushpin: Considerations 
+
+- Pay attention to type of opertors that will create xcom by default   
+
+  Some operators will create x_com by default so you need to check out to set the arguements False if you do not want it to. For more      
+  infomration on the list of operators creating xcom automatically, you should look into documentation issued by Apache Airflow. 
+
+ 
+- xcom is not sutiable for big data tools incluing spark and flink. 
+ 
+ 
+
 
 
