@@ -97,8 +97,8 @@ with DAG("xcom_dag",schedule_interval="@daily",default_args=default_args,catchup
 
 - Pay attention to type of opertors that will create xcom by default   
 
-  Some operators will create x_com by default so you need to check out to set the arguements False if you do not want it to. For more      
-  infomration on the list of operators creating xcom automatically, you should look into documentation issued by Apache Airflow. 
+  Some operators will create x_com by default so you need to check out to set the arguements False if you do not want it to. 
+  For more infomration on the list of operators creating xcom automatically, you should look into documentation issued by Apache Airflow. 
 
  
 - xcom is not sutiable for big data tools incluing spark and flink. 
