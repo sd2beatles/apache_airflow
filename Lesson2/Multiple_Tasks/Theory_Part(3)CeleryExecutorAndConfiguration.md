@@ -1,3 +1,6 @@
+
+![image](https://user-images.githubusercontent.com/53164959/110245285-dc763d80-7fa5-11eb-94c5-40f62eb89fb9.png)
+
 :warning: Stop all the airflow webserver and scheduler before setting configuraiton
 
 ### 1. Install apache-airflow Celery and Redis [terminal]
