@@ -1,3 +1,6 @@
+![image](https://user-images.githubusercontent.com/53164959/110245257-bfda0580-7fa5-11eb-9b04-ed4490c3de13.png)
+
+
 ### 0. Importing all the relevant libraries 
 
 
