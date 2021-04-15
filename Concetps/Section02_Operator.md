@@ -18,7 +18,7 @@ This is a subtle but very important point: in general, if two operators need to 
 
 The key features of operators we should be familiar with are 
 
-- The Operatior are regarded as the definition of a __single__ task.
+- The Operator are regarded as the definition of a __single__ task.
 - The operator should be impotent,which explains regardless of how many times it is run, the operator should produce the same result.
 - Any assigned task can be repeatedly __retried__ in the time of failure.
 - A task is created by __instantiating__ an Operator class.
