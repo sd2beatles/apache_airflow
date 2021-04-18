@@ -2,7 +2,7 @@
 
 ## 1. Introduction 
 
-Just imagine that you have data pipelines that consist of three major tasks; downloading, checking f, and processing files with the dependencies. 
+Just imagine that you have data pipelines that consist of three major tasks; downloading, checking files, and processing files with the dependencies. 
 
  ![image](https://user-images.githubusercontent.com/53164959/110196897-fff89580-7e8a-11eb-9548-1516ddfa65b9.png)
 
